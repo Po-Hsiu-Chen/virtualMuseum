@@ -35,7 +35,7 @@ public class LoginManager : MonoBehaviour
 
         componentDisabler.DisableComponents();
         loginButton.onClick.AddListener(OnLogin);
-        loginPanel.SetActive(true);
+        //loginPanel.SetActive(true);
     }
 
     private async void OnLogin()
@@ -62,6 +62,7 @@ public class LoginManager : MonoBehaviour
             loginPanel.SetActive(false);
             bird.StartIntro();
             componentDisabler.EnableComponents();
+            componentDisabler.HideStartCanvas();
         }
         else
         {

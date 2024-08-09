@@ -3,7 +3,8 @@ using UnityEngine;
 public class ComponentDisabler : MonoBehaviour
 {
     public GameObject manager;
-    public GameObject selectRoomCanvas;
+    public GameObject sideCanvas;
+    public GameObject startCanvas;
     private ExhibitInteraction exhibitInteraction;
     private AudioSource audioSource;
     private RaycastManager raycastManager;
@@ -19,7 +20,7 @@ public class ComponentDisabler : MonoBehaviour
 
     public void DisableComponents()
     {
-        selectRoomCanvas.SetActive(false);
+        sideCanvas.SetActive(false);
         if (exhibitInteraction != null)
         {
             exhibitInteraction.enabled = false;
@@ -32,9 +33,14 @@ public class ComponentDisabler : MonoBehaviour
 
     public void EnableComponents()
     {
-        selectRoomCanvas.SetActive(true);
+        sideCanvas.SetActive(true);
         exhibitInteraction.enabled = true;
         raycastManager.enabled = true;
+    }
+
+    public void HideStartCanvas()
+    {
+        startCanvas.SetActive(false);
     }
     
 }
