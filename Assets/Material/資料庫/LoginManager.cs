@@ -12,7 +12,8 @@ public class LoginManager : MonoBehaviour
     public Button loginButton;
     public TextMeshProUGUI messageText;
     public GameObject manager;
-
+    
+    public UserSetting userSetting;
     private MongoClient client;
     private IMongoDatabase userDatabase;
     private IMongoCollection<BsonDocument> accountCollection;
@@ -63,6 +64,7 @@ public class LoginManager : MonoBehaviour
             bird.StartIntro();
             componentDisabler.EnableComponents();
             componentDisabler.HideStartCanvas();
+            userSetting.InitializeUser();
         }
         else
         {

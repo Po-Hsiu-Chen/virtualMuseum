@@ -3,7 +3,22 @@ guid: b4686cae5c46d2f489befc291a2ccc34
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_0
+    second: {fileID: 2100000, guid: dcf0a5745c0220f49a778d4958e5c8db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sandstone
+    second: {fileID: 2100000, guid: 096280cb7fc82714eb2d23fe4a4c1f29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Water_Dark_Blue
+    second: {fileID: 2100000, guid: 5fbb127d86c73124f880f022d43d44d6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
