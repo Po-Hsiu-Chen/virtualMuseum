@@ -42,7 +42,7 @@ public class UserSetting : MonoBehaviour
     {
         if (state == 1)
         {
-            RenderSettings.ambientLight = new Color32(0, 0, 91, 255); 
+            RenderSettings.ambientLight = new Color32(48, 47, 164, 255); 
             if (additionalLight != null) additionalLight.SetActive(true); 
             if (directionalLight != null) directionalLight.SetActive(false); 
         }
