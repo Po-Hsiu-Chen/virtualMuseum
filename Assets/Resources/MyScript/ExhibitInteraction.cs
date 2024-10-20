@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -35,6 +36,20 @@ public class ExhibitInteraction : MonoBehaviour
             if (canvas.name == objectName)
             {
                 canvas.SetActive(true);
+
+                discussionObject = GameObject.Find("討論");
+                descriptionObject = GameObject.Find("說明");
+                player = GameObject.Find("PlayerArmature 1(Clone)");
+
+                infoCamera.gameObject.SetActive(true);
+                raycastManager.isInfo = true;
+
+                discussionObject.SetActive(false);
+                descriptionObject.SetActive(true);
+                player.SetActive(false);
+                componentDisabler.DisableComponents();
+                print("YYY");
+                return;
             }
             else
             {
@@ -42,17 +57,7 @@ public class ExhibitInteraction : MonoBehaviour
             }
         }
 
-        discussionObject = GameObject.Find("討論");
-        descriptionObject = GameObject.Find("說明");
-        player = GameObject.Find("PlayerArmature 1(Clone)");
-
-        infoCamera.gameObject.SetActive(true);
-        raycastManager.isInfo = true;
-
-        discussionObject.SetActive(false);
-        descriptionObject.SetActive(true);
-        player.SetActive(false);
-        componentDisabler.DisableComponents();
+        
     }
 
     public void HideInfoCanvas()

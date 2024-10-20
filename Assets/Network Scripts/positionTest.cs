@@ -61,7 +61,7 @@ public class positionTest : MonoBehaviour
             }
             else if(project == "project5"){
                 projectName = "project5";
-                transform.position = new Vector3(-113, 1.1f, 39);
+                transform.position = new Vector3(-115, 1.1f, 39);
                 Invoke("check", 0.2f);
                 projectTP.flag5 = false;
             }
@@ -70,7 +70,6 @@ public class positionTest : MonoBehaviour
     }
 
     void check(){
-        Debug.Log("check");
         Debug.Log(projectName);
         if(projectName == "project1"){
             if(transform.position.x != -74){
@@ -109,8 +108,8 @@ public class positionTest : MonoBehaviour
             }
         }
         if(projectName == "project5"){
-            if(transform.position.x != -113){
-                transform.position = new Vector3(-113, 1.1f, 50);
+            if(transform.position.x != -115){
+                transform.position = new Vector3(-115, 1.1f, 50);
                 Invoke("check", 0.01f);
             }
             else{
