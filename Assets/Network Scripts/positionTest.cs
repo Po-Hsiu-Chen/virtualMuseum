@@ -36,32 +36,32 @@ public class positionTest : MonoBehaviour
         if(GetComponent<NetworkObject>().HasStateAuthority){
             if(project == "project1"){
                 projectName = "project1";
-                transform.position = new Vector3(-75, 1.1f, 50);
+                transform.position = new Vector3(-74, 1.1f, 39);
                 Invoke("check", 0.2f);
                 projectTP.flag1 = false;
             }
             else if(project == "project2"){
                 Debug.Log("展場2");
                 projectName = "project2";
-                transform.position = new Vector3(-105, 1.1f, 50);
+                transform.position = new Vector3(-88, 1.1f, 39);
                 Invoke("check", 0.2f);
                 projectTP.flag2 = false;
             }
             else  if(project == "project3"){
                 projectName = "project3";
-                transform.position = new Vector3(-135, 1.1f, 50);
+                transform.position = new Vector3(-95, 1.1f, 39);
                 Invoke("check", 0.2f);
                 projectTP.flag3 = false;
             }
             else if(project == "project4"){
                 projectName = "project4";
-                transform.position = new Vector3(-165, 1.1f, 50);
+                transform.position = new Vector3(-106, 1.1f, 39);
                 Invoke("check", 0.2f);
                 projectTP.flag4 = false;
             }
             else if(project == "project5"){
                 projectName = "project5";
-                transform.position = new Vector3(-195, 1.1f, 35);
+                transform.position = new Vector3(-113, 1.1f, 39);
                 Invoke("check", 0.2f);
                 projectTP.flag5 = false;
             }
@@ -73,8 +73,8 @@ public class positionTest : MonoBehaviour
         Debug.Log("check");
         Debug.Log(projectName);
         if(projectName == "project1"){
-            if(transform.position.x != -75){
-                transform.position = new Vector3(-75, 1.1f, 50);
+            if(transform.position.x != -74){
+                transform.position = new Vector3(-74, 1.1f, 39);
                 Invoke("check", 0.01f);
             }
             else{
@@ -82,8 +82,8 @@ public class positionTest : MonoBehaviour
             }
         }
         if(projectName == "project2"){
-            if(transform.position.x != -105){
-                transform.position = new Vector3(-105, 1.1f, 50);
+            if(transform.position.x != -88){
+                transform.position = new Vector3(-88, 1.1f, 39);
                 Invoke("check", 0.01f);
             }
             else{
@@ -91,8 +91,8 @@ public class positionTest : MonoBehaviour
             }
         }
         if(projectName == "project3"){
-            if(transform.position.x != -135){
-                transform.position = new Vector3(-135, 1.1f, 50);
+            if(transform.position.x != -95){
+                transform.position = new Vector3(-95, 1.1f, 39);
                 Invoke("check", 0.01f);
             }
             else{
@@ -100,8 +100,8 @@ public class positionTest : MonoBehaviour
             }
         }
         if(projectName == "project4"){
-            if(transform.position.x != -165){
-                transform.position = new Vector3(-165, 1.1f, 50);
+            if(transform.position.x != -106){
+                transform.position = new Vector3(-106, 1.1f, 39);
                 Invoke("check", 0.01f);
             }
             else{
@@ -109,8 +109,8 @@ public class positionTest : MonoBehaviour
             }
         }
         if(projectName == "project5"){
-            if(transform.position.x != -195){
-                transform.position = new Vector3(-195, 1.1f, 50);
+            if(transform.position.x != -113){
+                transform.position = new Vector3(-113, 1.1f, 50);
                 Invoke("check", 0.01f);
             }
             else{
