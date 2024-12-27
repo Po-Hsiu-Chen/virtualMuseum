@@ -19,6 +19,10 @@ public class PositionTest : MonoBehaviour
         {
             ChangePosition("project2", new Vector3(-87.3f, 1.1f, 39));
         }
+        if (projectTP.flag3)
+        {
+            ChangePosition("project3", new Vector3(-75.7f, 1.1f, 39));
+        }
         if (projectTP.flag4)
         {
             ChangePosition("project4", new Vector3(-106.5f, 1.1f, 39));
@@ -70,6 +74,7 @@ public class PositionTest : MonoBehaviour
     {
         if (projectName == "project1") projectTP.flag1 = false;
         if (projectName == "project2") projectTP.flag2 = false;
+        if (projectName == "project3") projectTP.flag3 = false;
         if (projectName == "project4") projectTP.flag4 = false;
         if (projectName == "project5") projectTP.flag5 = false;
     }

@@ -32,16 +32,18 @@ public class RaycastManager : MonoBehaviour
             RaycastHit hitObj;
             if (Physics.Raycast(mouseRay, out hitObj))
             {
-                // if (hitObj.collider.CompareTag("prize1"))
-                // {
-                //     OpenTreasure();
-                // }
                 string hitTag = hitObj.collider.gameObject.tag;
                 switch (hitTag)
                 {
                     case "Exhibits":
                         //HandleExhibitClick(hitObj.collider.gameObject);
                         string objectName = hitObj.transform.parent.gameObject.name;
+                        print(objectName);
+                        exhibitInteraction.ShowInfoCanvas(objectName);
+                        break;
+                    
+                    case "Poster":
+                        objectName = hitObj.transform.gameObject.name;
                         print(objectName);
                         exhibitInteraction.ShowInfoCanvas(objectName);
                         break;

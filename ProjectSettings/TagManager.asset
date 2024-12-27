@@ -14,6 +14,8 @@ TagManager:
   - prize2
   - Exhibits
   - Video
+  - "\u5F48\u5857\u9B5A\u5CA9"
+  - Poster
   layers:
   - Default
   - TransparentFX

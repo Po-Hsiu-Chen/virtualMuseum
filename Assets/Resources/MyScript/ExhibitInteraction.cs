@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -7,6 +6,7 @@ public class ExhibitInteraction : MonoBehaviour
     public GameObject manager;
     public GameObject[] descriptionCanvas; 
     public GameObject[] videoCanvas; 
+    public VideoPlayer[] videoPlayers; // 手動拖入的所有 VideoPlayer
     public Camera mainCamera;
     public Camera infoCamera;
     private GameObject player;
@@ -14,9 +14,6 @@ public class ExhibitInteraction : MonoBehaviour
     private GameObject descriptionObject;
     private RaycastManager raycastManager;
     private ComponentDisabler componentDisabler;
-    
-    // 暫時public
-    public VideoPlayer videoPlayer;
 
     void Start()
     {
@@ -24,6 +21,12 @@ public class ExhibitInteraction : MonoBehaviour
         {
             canvas.SetActive(false);
         }
+
+        foreach (GameObject canvas in videoCanvas)
+        {
+            canvas.SetActive(false);
+        }
+
         infoCamera.gameObject.SetActive(false);
         raycastManager = manager.GetComponent<RaycastManager>();
         componentDisabler = manager.GetComponent<ComponentDisabler>();
@@ -48,7 +51,7 @@ public class ExhibitInteraction : MonoBehaviour
                 descriptionObject.SetActive(true);
                 player.SetActive(false);
                 componentDisabler.DisableComponents();
-                print("YYY");
+
                 return;
             }
             else
@@ -56,8 +59,6 @@ public class ExhibitInteraction : MonoBehaviour
                 canvas.SetActive(false);
             }
         }
-
-        
     }
 
     public void HideInfoCanvas()
@@ -75,6 +76,15 @@ public class ExhibitInteraction : MonoBehaviour
         componentDisabler.EnableComponents();
     }
 
+    private void MuteAllVideoPlayers()
+    {
+        foreach (VideoPlayer player in videoPlayers)
+        {
+            player.SetDirectAudioMute(0, true); // 靜音所有音頻
+            //player.Stop(); // 停止播放
+        }
+    }
+
     public void ShowVideoCanvas(string objectName)
     {
         player = GameObject.Find("PlayerArmature 1(Clone)");
@@ -82,26 +92,49 @@ public class ExhibitInteraction : MonoBehaviour
         player.SetActive(false);
         componentDisabler.DisableComponents();
 
-        foreach (GameObject canvas in videoCanvas)
+        for (int i = 0; i < videoCanvas.Length; i++)
         {
-            if (canvas.name == objectName)
+            if (videoCanvas[i].name == objectName)
             {
-                canvas.SetActive(true);
-                videoPlayer.SetDirectAudioMute(0, false);  
+                videoCanvas[i].SetActive(true);
+
+                if (i < videoPlayers.Length && videoPlayers[i] != null)
+                {
+                    // 靜音其他影片
+                    MuteAllVideoPlayers();
+
+                    // 啟用音頻並播放影片
+                    Debug.Log($"Audio Track Count: {videoPlayers[i].audioTrackCount}");
+                    videoPlayers[i].SetDirectAudioMute(0, false);
+                    videoPlayers[i].Play();
+                }
+                else
+                {
+                    Debug.LogWarning($"No VideoPlayer found for canvas {objectName}");
+                }
 
                 return;
+            }
+            else
+            {
+                videoCanvas[i].SetActive(false);
             }
         }
     }
 
     public void HideVideoCanvas()
     {
-        foreach (GameObject canvas in videoCanvas)
+        for (int i = 0; i < videoCanvas.Length; i++)
         {
-            canvas.SetActive(false);
-            videoPlayer.SetDirectAudioMute(0, true); 
+            videoCanvas[i].SetActive(false);
+
+            if (i < videoPlayers.Length && videoPlayers[i] != null)
+            {
+                //videoPlayers[i].Stop(); // 停止播放
+                videoPlayers[i].SetDirectAudioMute(0, true); // 靜音
+            }
         }
-        
+
         player.SetActive(true);
         raycastManager.isInfo = false;
         componentDisabler.EnableComponents();
