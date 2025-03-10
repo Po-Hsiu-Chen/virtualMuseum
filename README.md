@@ -1,3 +1,12 @@
+## Setup
+- **Clone**：
+	```
+	git clone git@github.com:Po-Hsiu-Chen/virtualMuseum.git
+	```
+- **Untiy 開啟博物館場景**：  
+  - 開啟 Unity Hub -> 新增 -> 選擇 `virtualMuseum` 資料夾 -> 開啟  
+  - 於 `Assets/Scenes/` 中找到 `MuseumScene` 雙擊
+
 ## directory structure
 
 新版資料主要在 `Assets/Resources/` 下。
